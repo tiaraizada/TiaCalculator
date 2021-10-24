@@ -1,5 +1,9 @@
+// Array to maintain History Data
 var historyCal = [];
+// Boolean variable to notify if a new equation has begun
 var newCal;
+
+// Display function is used to display the equation and result in it it gets triggered on every button click 
 function display(val)
 {  
    if(newCal) {
@@ -9,10 +13,11 @@ function display(val)
     document.getElementById("result").value+=val;
 }
 
+// Solve method is called on click of '=' once completly executed newCal is made true to notify a begining of new equation
 function solve()
 {
     let x = document.getElementById("result").value;
-    let y = eval(x)
+    let y = eval(x);
     document.getElementById("result").value = y;
     maintainHistory(x, y);
     newCal = true;
@@ -32,8 +37,7 @@ function clr()
     document.getElementById("result").value = ""
 }
 
-function toggleDayNight(event) {
-   console.log(event);
+function toggleDayNight() {
    var element = document.querySelectorAll("input");
    element.forEach((input) => {
       input.classList.toggle("night");
